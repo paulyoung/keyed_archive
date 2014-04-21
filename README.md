@@ -1,6 +1,6 @@
 # KeyedArchive
 
-TODO: Write a gem description
+A Ruby gem for working with files produced by NSKeyedArchiver.
 
 ## Installation
 
