@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Paul Young"]
   spec.email         = ["paulyoungonline@gmail.com"]
   spec.summary       = %q{A Ruby gem for working with files produced by NSKeyedArchiver.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/paulyoung/keyed_archive"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
