@@ -1,3 +1,3 @@
-module KeyedArchive
-  VERSION = "0.0.1"
+class KeyedArchive
+  VERSION = "0.1.0"
 end
