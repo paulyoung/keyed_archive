@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>$version</key>
+	<integer>100000</integer>
+	<key>$objects</key>
+	<array>
+		<string>$null</string>
+		<string>value</string>
+		<dict>
+			<key>reference</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>3</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+	</array>
+	<key>$archiver</key>
+	<string>NSKeyedArchiver</string>
+	<key>$top</key>
+	<dict>
+		<key>root</key>
+		<dict>
+			<key>CF$UID</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>
