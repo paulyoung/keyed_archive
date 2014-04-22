@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = KeyedArchive::VERSION
   spec.authors       = ["Paul Young"]
   spec.email         = ["paulyoungonline@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A Ruby gem for working with files produced by NSKeyedArchiver.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
