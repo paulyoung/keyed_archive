@@ -28,4 +28,9 @@ describe KeyedArchive, "#initialize" do
     keyed_archive = KeyedArchive.new(:file => filename)
     expect(keyed_archive.version).to be_an(Integer)
   end
+
+  it "should read data from variables as well" do
+    keyed_archive = KeyedArchive.new(:data => blob)
+    expect(keyed_archive.version).to be_an(Integer)
+  end
 end
