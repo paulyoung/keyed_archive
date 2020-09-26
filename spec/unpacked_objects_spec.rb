@@ -2,10 +2,10 @@ require "keyed_archive/unpacked_objects"
 
 shared_examples "unpack" do
   it "should unpack objects" do
-    keyed_archive = KeyedArchive.new(filename)
-    unpacked_objects = keyed_archive.unpacked_objects()
-    fixture_archive = KeyedArchive.new(fixture)
-    expect(unpacked_objects).to eq(fixture_archive.objects)
+    keyed_archive = KeyedArchive.new(:file => filename)
+    unpacked_top = keyed_archive.unpacked_top()
+    fixture_archive = KeyedArchive.new(:file => fixture)
+    expect(unpacked_top["root"]).to eq(fixture_archive.objects[1]["key"])
   end
 end
 
