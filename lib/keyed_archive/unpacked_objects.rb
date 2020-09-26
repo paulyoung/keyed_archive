@@ -23,19 +23,15 @@ class KeyedArchive
     # By default we just return the value itself, usually a String
     to_return = value
 
+    if value.is_a? String and value == "$null"
+      to_return = nil
+    end
+
     # If we have an Integer, we want to bring in the object 
     # that Integer points to
     if value.is_a? Integer
 
-      # If the object the Integer points to is a Hash, 
-      # then we want to recursively replace it
-      if @objects[value].is_a? Hash
-        to_return = recursive_replace(@objects[value])
-      else
-
-        # If what it points to is not a Hash, just return that
-        to_return = @objects[value]
-      end
+      to_return = recursive_replace(@objects[value])
 
     # If we have a Hash, we want to check each entry 
     # and replace any values which need it
