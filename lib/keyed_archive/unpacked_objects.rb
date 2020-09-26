@@ -52,6 +52,10 @@ class KeyedArchive
           end
           to_return[tmp_key] = new_array
 
+        # Handle an edge case in kCLPlacemarkCodingKeyRegion objects
+        elsif tmp_key == "reserved"
+          to_return[tmp_key] = tmp_value
+
         # Otherwise, we just want to replace the value with
         # its recursive version
         else
