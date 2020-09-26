@@ -18,6 +18,22 @@ Or install it yourself as:
 
 ## Usage
 
+### Basic Syntax
+
+KeyedArchive supports the initializer arguments which CFPropertyList supports: `:file` to read data directly from a file and `:data` to read data from a variable that already has your NSKeyedArchive data within it.
+
+```ruby
+
+# Create KeyedArchive by reading a file directly
+keyed_archive_from_file = KeyedArchive.new(:file => "path/to/file.plist")
+
+# Create KeyedArchive from a variable holding content which can 
+# be parsed as a plist, either XML or binary. 
+file_contents = File.read("path/to/file.plist")
+keyed_archive_from_variable = KeyedArchive.new(:data => file_contents)
+
+```
+
 ### Opening a keyed archive
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -48,11 +64,12 @@ Or install it yourself as:
 require 'keyed_archive'
 
 filename = "path/to/file.plist"
-keyed_archive = KeyedArchive.new("path/to/file.plist")
-keyed_archive.archiver  # "NSKeyedArchiver"
-keyed_archive.objects   # ["$null"]
-keyed_archive.top       # {"root"=>{"CF$UID"=>1}}
-keyed_archive.version   # 100000
+keyed_archive = KeyedArchive.new(:file => "path/to/file.plist")
+keyed_archive.archiver     # "NSKeyedArchiver"
+keyed_archive.objects      # ["$null"]
+keyed_archive.top          # {"root"=>1}
+keyed_archive.version      # 100000
+keyed_archive.unpacked_top # {"root"=>nil}
 ```
 
 ### Unpacking keyed archive objects
@@ -88,14 +105,15 @@ keyed_archive.version   # 100000
 ```ruby
 require 'keyed_archive'
 
-keyed_archive = KeyedArchive.new("path/to/file.plist")
-keyed_archive.objects             # ["$null", "value", {"reference"=>{"CF$UID"=>3}}, {"key"=>{"CF$UID"=>1}}]
-keyed_archive.unpacked_objects()  # ["$null", {"key"=>"value"}]
+keyed_archive = KeyedArchive.new(:file => "path/to/file.plist")
+keyed_archive.objects             # ["$null", {"key"=>"value"}]
+keyed_archive.top                 # {"root"=>1}
+keyed_archive.unpacked_top()      # {"root"=>{"key"=>"value"}}
 ```
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/keyed_archive/fork )
+1. Fork it ( http://github.com/\<my-github-username\>/keyed_archive/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
