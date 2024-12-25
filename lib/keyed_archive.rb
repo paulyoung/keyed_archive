@@ -14,7 +14,7 @@ class KeyedArchive
     blob = opts[:data]
     filename = opts[:file]
 
-    plist = CFPropertyList::List.new(:file => filename) unless filename.nil? or !File.exists?(filename)
+    plist = CFPropertyList::List.new(:file => filename) unless filename.nil? or !File.exist?(filename)
     plist = CFPropertyList::List.new(:data => blob) unless blob.nil? or blob.length < 1
 
     if !plist.nil?
